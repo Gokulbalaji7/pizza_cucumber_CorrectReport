@@ -1,17 +1,19 @@
 package stepdefinition;
 
+import java.io.IOException;
+
 import baseclasspizza.Baseclasspizza;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pomclasspizza.Pomclasspizza1;
 
-public class Stepdefpizza extends Baseclasspizza {
+public class stepdefpizza extends Baseclasspizza {
 
 	public Pomclasspizza1 pompizza;
 
 	@Given("user launches the url")
 	public void user_launches_the_url() throws Throwable {
-		launch();
+		chromedriverlaunch();
 		url("https://www.pizzahut.co.in");
 		maximize();
 		Thread.sleep(2000);
@@ -58,11 +60,14 @@ public class Stepdefpizza extends Baseclasspizza {
 	}
 
 	@Then("click add to basket and checkout button")
-	public void click_add_to_basket_and_checkout_button() throws InterruptedException {
+	public void click_add_to_basket_and_checkout_button() throws IOException, Throwable {
 		Thread.sleep(4000);
 		click(pompizza.addbasket);
 		Thread.sleep(2000);
 		click(pompizza.checkout);
+		Thread.sleep(2000);
+		sendkeyss(pompizza.inputmyname, "Gokul R");
+		screenshott("C:\\Users\\gokul\\eclipse-workspace\\Pizza.cucuber_report\\screenshott\\pizzacheckout.png");
 	}
 
 }

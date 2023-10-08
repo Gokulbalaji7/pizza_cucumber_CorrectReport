@@ -40,5 +40,8 @@ public class Pomclasspizza1 extends Baseclasspizza {
 	@FindBy(xpath = "//span[text()='Checkout']")
 	public WebElement checkout;
 	
+	@FindBy(id = "checkout__name")
+	public WebElement inputmyname;
+	
 	
 }
